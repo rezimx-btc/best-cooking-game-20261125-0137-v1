@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rush Hour Kitchen — Make the best cooking game</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">🍳 RUSH HOUR KITCHEN</div>
+    <div class="stat"><span class="label">DAY</span><span id="dayLabel" class="value">1 / 3</span></div>
+    <div class="stat"><span class="label">CLOCK</span><span id="clock" class="value">2:30</span></div>
+    <div class="stat"><span class="label">SCORE</span><span id="score" class="value">0</span></div>
+    <div class="stat"><span class="label">COMBO</span><span id="combo" class="value">×1</span></div>
+    <div class="stat"><span class="label">SERVED</span><span id="served" class="value">0 / 4</span></div>
+    <div class="stat"><span class="label">RUSH BELL</span><span id="bellCount" class="value">🔔 1</span></div>
+    <button id="muteBtn" title="Mute (M)">🔊</button>
+  </header>
+
+  <div id="mainRow">
+    <div id="stageWrap">
+      <canvas id="game" width="880" height="540"></canvas>
+      <div id="ticker">Welcome to Rush Hour Kitchen — take an order, then chop, cook, plate and serve!</div>
+    </div>
+    <aside id="sidePanel">
+      <h2>ORDER TICKETS</h2>
+      <div id="ticketRail"></div>
+      <h2>STOVE STATUS</h2>
+      <div id="stovePanel"></div>
+      <h2>YOUR TRAY</h2>
+      <div id="trayPanel"><p class="dim">No active order. Take a ticket!</p></div>
+    </aside>
+  </div>
+
+  <footer id="footer">
+    <div id="legend">
+      <span><i class="sw chop"></i>Chop</span>
+      <span><i class="sw fry"></i>Fry / Boil</span>
+      <span><i class="sw plate"></i>Plate</span>
+      <span><i class="sw serve"></i>Serve</span>
+      <span><i class="sw burn"></i>Burnt — bin it!</span>
+      <span><i class="sw ticket"></i>Ticket patience</span>
+    </div>
+    <div id="controls">WASD / Arrows move &nbsp;·&nbsp; E interact &nbsp;·&nbsp; Click ticket / station &nbsp;·&nbsp; B rush bell (1/day) &nbsp;·&nbsp; R restart day &nbsp;·&nbsp; M mute</div>
+  </footer>
+
+  <div id="overlay">
+    <div id="overlayCard">
+      <h1 id="overlayTitle">RUSH HOUR KITCHEN</h1>
+      <p id="overlayText">Three days. One tiny kitchen. Customers are hungry and patience is short — chop, fry, boil, plate and serve before they walk out. Burn a pan and it blocks the stove until you bin it. Ring the rush bell once a day to finish a cook instantly.</p>
+      <div id="overlayStats"></div>
+      <button id="overlayBtn">START DAY 1</button>
+      <p class="dim small">How to play: click a ticket (or press E at the ORDER counter) to take it · grab the next ingredient at the FRIDGE · chop at the BOARD · fry on the STOVE · boil in the POT · add it at PLATING · serve at the HATCH. Serve with patience above 50% for a PERFECT bonus.</p>
+    </div>
+  </div>
+</div>
+<script src="js/audio.js"></script>
+<script src="js/orders.js"></script>
+<script src="js/stations.js"></script>
+<script src="js/render.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
