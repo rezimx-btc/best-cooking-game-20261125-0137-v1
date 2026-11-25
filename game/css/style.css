@@ -1,0 +1,88 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #1c130c; }
+body {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  color: #fff3e0;
+  display: flex; justify-content: center;
+}
+#app { width: 1280px; padding: 8px 10px 6px; background: linear-gradient(#2b1d12, #241610); }
+#topbar {
+  display: flex; align-items: center; gap: 10px;
+  background: #3d2417; border: 2px solid #7a4a21; border-radius: 10px;
+  padding: 8px 12px; margin-bottom: 8px;
+}
+.brand { font-size: 22px; font-weight: 900; letter-spacing: 1px; color: #ffd54f; margin-right: 8px; }
+.stat { background: #241610; border: 1px solid #6b4423; border-radius: 8px; padding: 4px 10px; }
+.stat .label { font-size: 10px; color: #d7a86e; display: block; letter-spacing: 1px; }
+.stat .value { font-size: 18px; font-weight: 800; color: #fff; }
+#muteBtn { margin-left: auto; background: #241610; color: #fff; border: 1px solid #6b4423; border-radius: 8px; font-size: 18px; padding: 4px 10px; cursor: pointer; }
+
+#mainRow { display: flex; gap: 10px; }
+#stageWrap { flex: 0 0 880px; }
+#game { display: block; width: 880px; height: 540px; border: 2px solid #7a4a21; border-radius: 10px; background: #3a2a1a; }
+#ticker {
+  margin-top: 6px; background: #241610; border: 1px solid #6b4423; border-radius: 8px;
+  padding: 7px 12px; font-size: 15px; color: #ffe082; min-height: 34px;
+}
+#sidePanel {
+  flex: 1; background: #3d2417; border: 2px solid #7a4a21; border-radius: 10px;
+  padding: 10px 12px; overflow: hidden;
+}
+#sidePanel h2 { font-size: 13px; letter-spacing: 2px; color: #ffb74d; margin: 6px 0 6px; }
+#sidePanel h2:first-child { margin-top: 0; }
+#ticketRail { display: flex; flex-direction: column; gap: 6px; min-height: 190px; }
+.ticket {
+  background: #fff8e1; color: #3e2723; border-radius: 8px; padding: 7px 9px;
+  border-left: 6px solid #ffb300; cursor: pointer; font-size: 13px;
+}
+.ticket.active { border-left-color: #2e7d32; box-shadow: 0 0 0 2px #66bb6a; }
+.ticket.ready { border-left-color: #1565c0; background: #e3f2fd; }
+.ticket .tHead { display: flex; justify-content: space-between; font-weight: 800; }
+.ticket .tState { font-weight: 900; letter-spacing: 1px; }
+.ticket .tState.waiting { color: #e65100; }
+.ticket .tState.prepping { color: #6a1b9a; }
+.ticket .tState.ready { color: #1565c0; }
+.ticket .tDish { font-size: 14px; font-weight: 700; margin: 2px 0; }
+.ticket .tSteps { font-size: 12px; color: #5d4037; }
+.patience { height: 8px; background: #d7ccc8; border-radius: 4px; margin-top: 5px; overflow: hidden; }
+.patience > div { height: 100%; background: #43a047; }
+.patience.low > div { background: #e53935; }
+.stoveRow { display: flex; justify-content: space-between; background: #241610; border: 1px solid #6b4423; border-radius: 6px; padding: 6px 9px; margin-bottom: 5px; font-size: 14px; }
+.stoveRow .sState { font-weight: 900; }
+.sState.idle { color: #b0bec5; }
+.sState.cooking { color: #ffb74d; }
+.sState.ready { color: #66bb6a; }
+.sState.burnt { color: #ef5350; }
+#trayPanel { background: #241610; border: 1px solid #6b4423; border-radius: 6px; padding: 8px 10px; font-size: 14px; min-height: 64px; }
+#trayPanel .trayDish { font-weight: 800; color: #ffd54f; margin-bottom: 4px; }
+#trayPanel .comp { display: flex; justify-content: space-between; }
+#trayPanel .comp.done { color: #81c784; }
+#trayPanel .comp.next { color: #fff; font-weight: 700; }
+#trayPanel .comp.todo { color: #bcaaa4; }
+.dim { color: #bcaaa4; }
+.small { font-size: 12px; line-height: 1.5; margin-top: 10px; }
+
+#footer { margin-top: 8px; background: #3d2417; border: 2px solid #7a4a21; border-radius: 10px; padding: 7px 12px; }
+#legend { display: flex; gap: 18px; font-size: 13px; margin-bottom: 4px; flex-wrap: wrap; }
+#legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.sw.chop { background: #8d6e63; } .sw.fry { background: #ff7043; } .sw.plate { background: #66bb6a; }
+.sw.serve { background: #42a5f5; } .sw.burn { background: #37474f; } .sw.ticket { background: #ffb300; }
+#controls { font-size: 13px; color: #d7a86e; }
+
+#overlay {
+  position: fixed; inset: 0; background: rgba(20, 10, 5, 0.82);
+  display: flex; align-items: center; justify-content: center; z-index: 10;
+}
+#overlay.hidden { display: none; }
+#overlayCard {
+  width: 620px; background: #3d2417; border: 3px solid #ffb300; border-radius: 14px;
+  padding: 28px 32px; text-align: center;
+}
+#overlayCard h1 { color: #ffd54f; font-size: 34px; letter-spacing: 2px; margin-bottom: 12px; }
+#overlayCard p { font-size: 15px; line-height: 1.55; color: #ffe0b2; }
+#overlayStats { margin: 14px 0; font-size: 16px; font-weight: 700; color: #fff; line-height: 1.7; }
+#overlayBtn {
+  margin-top: 8px; background: #ffb300; color: #3e2723; border: none; border-radius: 10px;
+  font-size: 20px; font-weight: 900; padding: 12px 34px; cursor: pointer; letter-spacing: 1px;
+}
+#overlayBtn:hover { background: #ffc233; }
